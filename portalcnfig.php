@@ -3,11 +3,8 @@
 session_start();
 //声明编码UTF-8
 header("Content-Type: text/html;charset=utf-8");
-//封装错误网页
-function error_web($error_data){
-    $_SESSION['error']=$error_data;
-    header("Location: ./error.php");
-};
+//调用封装函数页面
+include("function.php");
 //判断GET提交的数据是否为真
 if (isset($_GET['sn'])){
     //检测提交数据是否合法
@@ -34,7 +31,7 @@ if (isset($_GET['sn'])){
                 if ($Replace !== $Wg_Split[1]){
                     $User_url = $Replace;
                     //传值至session
-                    $_SESSION['Wg-sn'] = $Wg_sn;
+                    $_SESSION['Wg_sn'] = $Wg_sn;
                     $_SESSION['User_mac'] = $User_mac;
                     $_SESSION['User_ip'] = $User_ip;
                     $_SESSION['User_url'] = $User_url;

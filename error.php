@@ -1,10 +1,7 @@
 <?php
-//启动session
-session_start();
-$error =$_SESSION['error'];
-//销毁session
-session_destroy();
-
+header("Content-Type: text/html;charset=utf-8");
+//获取错误信息并解密
+$error = base64_decode(str_replace(" ","+",$_GET['error']));
 ?>
 <html>
 <head>
@@ -37,7 +34,7 @@ session_destroy();
         <h1>抱歉！发生了错误</h1>
         <h3>
             <?php
-            echo "$error";
+            echo '错误原因:'.$error;
             ?>
         </h3>
         <ul>

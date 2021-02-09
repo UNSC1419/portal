@@ -1,18 +1,30 @@
 <?php
 //声明编码UTF-8
 header("Content-Type: text/html;charset=utf-8");
-$servername = "192.168.3.249";
-$username = "portal";
-$password = "pwTxLFEHDs4CSfJh";
+//portal数据库参数
+$servername_portal = "192.168.3.249";
+$username_portal = "portal";
+$password_portal = "pwTxLFEHDs4CSfJh";
+//radius数据库参数
+$servername_radius = "192.168.3.246";
+$username_radius = "root";
+$password_radius = "myroot";
  
 // 创建连接
-$conn = new mysqli($servername, $username, $password);
+$conn_portal = new mysqli($servername_portal, $username_portal, $password_portal);
  
 // 检测连接
-if ($conn->connect_error) {
-    die("连接失败: " . $conn->connect_error);
+if ($conn_portal->connect_error) {
+    die("连接portal失败: " . $conn_portal->connect_error);
 }
-//未声明情况下所有操作均为client数据库
-mysqli_select_db($conn,"portal");
+//未声明情况下$conn_portal所有操作均为portal数据库
+mysqli_select_db($conn_portal,"portal");
+
+$conn_radius = new mysqli($servername_radius, $username_radius, $password_radius);
+if ($conn_radius->connect_error) {
+    die("连接radius失败: " . $conn_radius->connect_error);
+}
+//未声明情况下$conn_radius所有操作均为toughradius数据
+mysqli_select_db($conn_radius,"toughradius");
 
 ?>
