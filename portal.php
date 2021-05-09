@@ -117,7 +117,6 @@ if (isset($_SESSION['Wg_sn']) and isset($_SESSION['User_mac']) and isset($_SESSI
         $ret_radius = mysqli_query($conn_radius, $mysql);
         if (!$ret_radius) {
             error_web("添加radius数据库tr_subscribe表mac账户错误","哎呀出错啦！",mysqli_error($conn_portal));
-            printf("Error: %s\n", mysqli_error($conn_radius));
             exit();
 
         }
@@ -130,12 +129,6 @@ if (isset($_SESSION['Wg_sn']) and isset($_SESSION['User_mac']) and isset($_SESSI
         session_destroy();
         exit;
     }
-    #echo $adplan_url
-    #echo $adplan_id
-    #echo $Wg_sn;
-    #echo $User_mac;
-    #echo $User_ip;
-    #echo $User_url;
 } else {
     error_web("无法获取传递参数","无法获取传递参数");
     exit;
