@@ -39,26 +39,26 @@ if (isset($_GET['sn'])) {
                         header("Location: ./portal.php");
                         exit;
                     } else {
-                        error_web("回调地址非法");
+                        error_web("回调地址非法","回调地址非法");
                         exit;
                     }
                 } else {
-                    error_web("用户IP地址非法");
+                    error_web("用户IP地址非法","用户IP地址非法");
                     exit;
                 }
             } else {
-                error_web("MAC地址非法");
+                error_web("MAC地址非法","MAC地址非法");
                 exit;
             }
         } else {
-            error_web("数据结构非法");
+            error_web("数据结构非法","数据结构非法");
             exit;
         }
     } else {
-        error_web("SN段非法");
+        error_web("SN段非法","SN段非法");
         exit;
     }
 } else {
-    error_web("无数据");
+    error_web("无数据","无数据");
     exit;
 }

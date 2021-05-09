@@ -1,5 +1,5 @@
 <?php
-function error_web($error_data)
+function error_web($error_name = false,$error_echo= false,$error_sqlecho = false)
 {
     //本方法向数据库error_log表写入错误信息及跳转错误页面
     //引用数据库
@@ -13,14 +13,14 @@ function error_web($error_data)
     //获取agent
     $User_agent = $_SERVER['HTTP_USER_AGENT'];
     //填充error日志
-    $mysql = "INSERT INTO `portal-test`.`error_log` (`error_id`, `error_time`, `error_getdata`, `error_name`, `error_user_os`, `error_user_browser`, `error_user_agent`) VALUES (NULL, NOW(), '$erroe_get_data', '$error_data', '$User_Os', '$User_Browser', '$User_agent');";
+    $mysql = "INSERT INTO `portal-test`.`error_log` (`error_id`, `error_time`, `error_getdata`, `error_name`, `error_user_os`, `error_user_browser`, `error_user_agent`, `error_sqlecho`) VALUES (NULL, NOW(), '$erroe_get_data', '$error_name', '$User_Os', '$User_Browser', '$User_agent','$error_sqlecho');";
     $ret_portal = mysqli_query($conn_portal, $mysql);
     if (!$ret_portal) {
         printf("Error: %s\n", mysqli_error($conn_portal));
         exit();
     }
-    $error_data = base64_encode($error_data);
-    header("Location: ./error.php?error=" . $error_data);
+    $error_echo = base64_encode($error_echo);
+    header("Location: ./error.php?error=" . $error_echo);
 }
 
 function user_agent($ua)
