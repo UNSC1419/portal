@@ -1,10 +1,30 @@
 <?php
 function error_web($error_data)
 {
+    //本方法向数据库error_log表写入错误信息及跳转错误页面
+    //引用数据库
+    include("link_mysql.php");
+    //获取get所有参数
+    $erroe_get_data = $_SERVER['QUERY_STRING'];
+    //解析操作系统和浏览器表示
+    $User_UaSplit = explode('  |  ', user_agent($_SERVER['HTTP_USER_AGENT']));
+    $User_Os = $User_UaSplit[0];
+    $User_Browser = $User_UaSplit[1];
+    //获取agent
+    $User_agent = $_SERVER['HTTP_USER_AGENT'];
+    //填充error日志
+    $mysql = "INSERT INTO `portal-test`.`error_log` (`error_id`, `error_time`, `error_getdata`, `error_name`, `error_user_os`, `error_user_browser`, `error_user_agent`) VALUES (NULL, NOW(), '$erroe_get_data', '$error_data', '$User_Os', '$User_Browser', '$User_agent');";
+    $ret_portal = mysqli_query($conn_portal, $mysql);
+    if (!$ret_portal) {
+        printf("Error: %s\n", mysqli_error($conn_portal));
+        exit();
+    }
     $error_data = base64_encode($error_data);
-    header("Location: ./error.php?error=".$error_data);
+    header("Location: ./error.php?error=" . $error_data);
 }
-function user_agent($ua) {
+
+function user_agent($ua)
+{
     //开始解析操作系统
     $os = null;
     if (preg_match('/Windows NT 6.0/i', $ua)) {
@@ -72,4 +92,5 @@ function user_agent($ua) {
     }
     return $os . "  |  " . $browser;
 }
+
 ?>
