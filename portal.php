@@ -16,7 +16,7 @@ if (isset($_SESSION['Wg_sn']) and isset($_SESSION['User_mac']) and isset($_SESSI
     $mysql = "SELECT * FROM `wg_sn` WHERE `wg_snid` LIKE '$Wg_sn'";
     //执行MySQL语句
     $ret_portal = mysqli_query($conn_portal, $mysql);
-    //返回mysql的错误代码
+    //返回mysql的错误代码(生产环境务必注释掉这里)
     if (!$ret_portal) {
         printf("Error: %s\n", mysqli_error($conn_portal));
         exit();
@@ -38,7 +38,7 @@ if (isset($_SESSION['Wg_sn']) and isset($_SESSION['User_mac']) and isset($_SESSI
     $mysql = "SELECT * FROM `adplan_data` WHERE `adplan_id` LIKE '$adplan_id'";
     //执行MySQL语句
     $ret_portal = mysqli_query($conn_portal, $mysql);
-    //返回mysql的错误代码
+    //返回mysql的错误代码(生产环境务必注释掉这里)
     if (!$ret_portal) {
         printf("Error: %s\n", mysqli_error($conn_portal));
         exit();
@@ -74,7 +74,7 @@ if (isset($_SESSION['Wg_sn']) and isset($_SESSION['User_mac']) and isset($_SESSI
     //定义Mysql语句
     $mysql = "INSERT INTO `login_log` (`log_id`, `log_time`, `user_mac`, `wg_snid`, `adplan_id`, `adplan_url`,`User_Os`,`User_Browser`,`adplan_success`) VALUES (NULL, NOW(), '$User_mac_id', '$Wg_sn', '$adplan_id', '$adplan_url', '$User_Os', '$User_Browser', '$adplan_success');";
     $ret_portal = mysqli_query($conn_portal, $mysql);
-    //返回mysql的错误代码
+    //返回mysql的错误代码(生产环境务必注释掉这里)
     if (!$ret_portal) {
         printf("Error: %s\n", mysqli_error($conn_portal));
         exit();
@@ -84,7 +84,7 @@ if (isset($_SESSION['Wg_sn']) and isset($_SESSION['User_mac']) and isset($_SESSI
 
     $mysql = "SELECT * FROM `tr_subscribe` WHERE `subscriber` LIKE '$User_mac_id'";
     $ret_radius = mysqli_query($conn_radius, $mysql);
-    //返回mysql的错误代码
+    //返回mysql的错误代码(生产环境务必注释掉这里)
     if (!$ret_radius) {
         printf("Error: %s\n", mysqli_error($conn_radius));
         exit();
