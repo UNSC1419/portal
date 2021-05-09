@@ -3,7 +3,6 @@ header("Content-Type: text/html;charset=utf-8");
 //获取信息并解密
 $SubmitUrl = base64_decode($_GET['SubmitUrl']);
 ?>
-<!DOCTYPE html>
 <html lang="zh">
 <head>
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
