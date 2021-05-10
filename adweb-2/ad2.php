@@ -2,6 +2,14 @@
 header("Content-Type: text/html;charset=utf-8");
 //获取信息并解密
 $SubmitUrl = base64_decode($_GET['SubmitUrl']);
+$sn_ad_imgurl = base64_decode($_GET['sn_ad_imgurl']);
+$sn_ad_url = base64_decode($_GET['sn_ad_url']);
+//处理$SubmitUrl，以&分割
+$SubmitUrl_Split = explode('&', $SubmitUrl);
+//修改success的地址为店铺广告url
+$SubmitUrl_Split[4] = "success=" . $sn_ad_url;
+//把分割时失去的&加回来
+$sn_ad_href = $SubmitUrl_Split[0] . "&" . $SubmitUrl_Split[1] . "&" . $SubmitUrl_Split[2] . "&" . $SubmitUrl_Split[3] . "&" . $SubmitUrl_Split[4];
 ?>
 <!DOCTYPE html>
 <html lang="zh-CN">
@@ -542,7 +550,7 @@ $SubmitUrl = base64_decode($_GET['SubmitUrl']);
                                                                 <div class="elementor-widget-container">
                                                                     <div class="elementor-image">
                                                                         <a <?php
-                                                                           echo 'href="'.$SubmitUrl.'"'
+                                                                           echo 'href="'.$sn_ad_href.'"';
                                                                            ?>>
 
                                                                             <img alt=""
@@ -550,7 +558,9 @@ $SubmitUrl = base64_decode($_GET['SubmitUrl']);
                                                                                  height="906"
                                                                                  loading="lazy"
                                                                                  sizes="(max-width: 1924px) 100vw, 1924px"
-                                                                                 src="static/picture/222.jpg"
+                                                                                <?php
+                                                                                echo 'src="'.$sn_ad_imgurl.'"';
+                                                                                ?>
                                                                                  width="1924"/>
                                                                         </a>
                                                                     </div>
