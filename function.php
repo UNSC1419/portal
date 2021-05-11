@@ -1,5 +1,5 @@
 <?php
-function error_web($error_name = false,$error_echo= false,$error_sqlecho = false)
+function error_web($error_name = false, $error_echo = false, $error_sqlecho = false)
 {
     //本方法向数据库error_log表写入错误信息及跳转错误页面
     //引用数据库

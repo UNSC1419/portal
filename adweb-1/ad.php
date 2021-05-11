@@ -27,6 +27,8 @@ $SubmitUrl = base64_decode($_GET['SubmitUrl']);
     <link href="./css/brands.min.css" id="elementor-icons-fa-brands-css" media="all" rel="stylesheet">
     <link href="./css/solid.min.css" id="elementor-icons-fa-solid-css" media="all" rel="stylesheet">
     <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport">
+    <link rel="icon" href="./img/logo256.png" sizes="192x192"/>
+    <link rel="apple-touch-icon" href="./img/logo256.png"/>
 </head>
 <body class="page-template-default page page-id-184 wp-custom-logo wp-embed-responsive singular image-filters-enabled elementor-default elementor-template-canvas elementor-kit-17 elementor-page elementor-page-184"
       data-elementor-device-mode="mobile">
@@ -78,9 +80,9 @@ $SubmitUrl = base64_decode($_GET['SubmitUrl']);
                                                                 <div class="elementor-widget-container">
                                                                     <div class="elementor-button-wrapper">
                                                                         <a class="elementor-button-link elementor-button elementor-size-md"
-                                                                           <?php
-                                                                           echo 'href="'.$SubmitUrl.'"'
-                                                                           ?>
+                                                                            <?php
+                                                                            echo 'href="' . $SubmitUrl . '"'
+                                                                            ?>
                                                                            role="button">
 						<span class="elementor-button-content-wrapper">
 						<span class="elementor-button-text">连接Wifi
@@ -245,7 +247,8 @@ $SubmitUrl = base64_decode($_GET['SubmitUrl']);
                                                     <div class="elementor-testimonial-meta-inner">
                                                         <div class="elementor-testimonial-image">
                                                             <img alt="" class="attachment-full size-full" height="256"
-                                                                 sizes="(max-width: 256px) 100vw, 256px" src="./img/logo256.png"
+                                                                 sizes="(max-width: 256px) 100vw, 256px"
+                                                                 src="./img/logo256.png"
                                                                  width="256"></div>
 
                                                         <div class="elementor-testimonial-details">

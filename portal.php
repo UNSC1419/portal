@@ -18,34 +18,34 @@ if (isset($_SESSION['Wg_sn']) and isset($_SESSION['User_mac']) and isset($_SESSI
     $ret_portal = mysqli_query($conn_portal, $mysql);
     //返回mysql的错误代码
     if (!$ret_portal) {
-        error_web("数据库portal查询wg_sn表wg_snid错误","哎呀出错啦！",mysqli_error($conn_portal));
+        error_web("数据库portal查询wg_sn表wg_snid错误", "哎呀出错啦！", mysqli_error($conn_portal));
         exit();
     }
     //将mysql返回的搜索结果传递至$row_portal
     $row_portal = mysqli_fetch_assoc($ret_portal);
     //判断参数中的SN是否有效
     if (!isset($row_portal['wg_snid'])) {
-        error_web("设备SN不存在","设备不合法");
+        error_web("设备SN不存在", "设备不合法");
         exit;
     }
 
     //判断广告方案ID是否有效
     if ($row_portal['adplan_id'] === "") {
-        error_web("SN对应AD广告ID不存在","广告方案错误");
+        error_web("SN对应AD广告ID不存在", "广告方案错误");
         exit;
     }
     //传递广告方案ID至$adplan_id
     $adplan_id = $row_portal['adplan_id'];
     //判断SN对应店铺imgurl是否有效
     if ($row_portal['sn_ad_imgurl'] === "") {
-        error_web("SN对应店铺imgurl不存在","店铺广告图片错误");
+        error_web("SN对应店铺imgurl不存在", "店铺广告图片错误");
         exit;
     }
     //传递SN对应店铺imgurl至$sn_ad_imgurl
     $sn_ad_imgurl = $row_portal['sn_ad_imgurl'];
     //判断SN对应店铺url是否有效
     if ($row_portal['sn_ad_url'] === "") {
-        error_web("SN对应店铺url不存在","店铺广告图片错误");
+        error_web("SN对应店铺url不存在", "店铺广告图片错误");
         exit;
     }
     //传递SN对应店铺url至$sn_ad_url
@@ -60,24 +60,24 @@ if (isset($_SESSION['Wg_sn']) and isset($_SESSION['User_mac']) and isset($_SESSI
     $ret_portal = mysqli_query($conn_portal, $mysql);
     //返回mysql的错误代码
     if (!$ret_portal) {
-        error_web("数据库portal查询adplan_data表adplan_id错误","哎呀出错啦！",mysqli_error($conn_portal));
+        error_web("数据库portal查询adplan_data表adplan_id错误", "哎呀出错啦！", mysqli_error($conn_portal));
         exit();
     }
     //将mysql返回的搜索结果传递至$row_portal
     $row_portal = mysqli_fetch_assoc($ret_portal);
     //判断广告ID是否有效
     if (!isset($row_portal['adplan_id'])) {
-        error_web("AD广告方案不存在","AD广告方案错误");
+        error_web("AD广告方案不存在", "AD广告方案错误");
         exit;
     }
     //判断广告RUL是否有效
     if ($row_portal['adplan_url'] === "") {
-        error_web("AD广告URL不存在","AD广告URL错误");
+        error_web("AD广告URL不存在", "AD广告URL错误");
         exit;
     }
     //判断落地页url是否有效
     if ($row_portal['adplan_success'] === "") {
-        error_web("落地页url不存在","落地页url错误");
+        error_web("落地页url不存在", "落地页url错误");
         exit;
     }
     //传递广告URl至$adplan_url
@@ -96,7 +96,7 @@ if (isset($_SESSION['Wg_sn']) and isset($_SESSION['User_mac']) and isset($_SESSI
     $ret_portal = mysqli_query($conn_portal, $mysql);
     //返回mysql的错误代码
     if (!$ret_portal) {
-        error_web("向portal填充log日志错误","哎呀出错啦！",mysqli_error($conn_portal));
+        error_web("向portal填充log日志错误", "哎呀出错啦！", mysqli_error($conn_portal));
         exit();
     }
     //查询radius数据库
@@ -106,7 +106,7 @@ if (isset($_SESSION['Wg_sn']) and isset($_SESSION['User_mac']) and isset($_SESSI
     $ret_radius = mysqli_query($conn_radius, $mysql);
     //返回mysql的错误代码
     if (!$ret_radius) {
-        error_web("查询radius数据库tr_subscribe表subscriber错误","查询账号错误",mysqli_error($conn_portal));
+        error_web("查询radius数据库tr_subscribe表subscriber错误", "查询账号错误", mysqli_error($conn_portal));
         exit();
     }
     //传递查询结果至$row_radius
@@ -116,7 +116,7 @@ if (isset($_SESSION['Wg_sn']) and isset($_SESSION['User_mac']) and isset($_SESSI
         //账号存在的情况执行
         //判断账号是否启用
         if ($row_radius['status'] !== 'enabled' and $row_radius['status'] === 'disabled') {
-            error_web("您无权连接","您无权连接");
+            error_web("您无权连接", "您无权连接");
             exit;
         }
         //生成返回链接
@@ -126,7 +126,7 @@ if (isset($_SESSION['Wg_sn']) and isset($_SESSION['User_mac']) and isset($_SESSI
         $sn_ad_imgurl = base64_encode($sn_ad_imgurl);
         $sn_ad_url = base64_encode($sn_ad_url);
         //根据$adplan_url跳转带get参数$SubmitUrl、$sn_ad_imgurl、$sn_ad_url
-        header("Location: $adplan_url?SubmitUrl=" . $SubmitUrl . "&sn_ad_imgurl=" . $sn_ad_imgurl . "&sn_ad_url=" . $sn_ad_url );
+        header("Location: $adplan_url?SubmitUrl=" . $SubmitUrl . "&sn_ad_imgurl=" . $sn_ad_imgurl . "&sn_ad_url=" . $sn_ad_url);
         session_destroy();
         exit;
 
@@ -138,7 +138,7 @@ if (isset($_SESSION['Wg_sn']) and isset($_SESSION['User_mac']) and isset($_SESSI
         $mysql = "INSERT INTO `tr_subscribe` (`id`, `node_id`, `subscriber`, `realname`, `password`, `domain`, `addr_pool`, `policy`, `is_online`, `active_num`, `bind_mac`, `bind_vlan`, `ip_addr`, `mac_addr`, `in_vlan`, `out_vlan`, `up_rate`, `down_rate`, `up_peak_rate`, `down_peak_rate`, `up_rate_code`, `down_rate_code`, `status`, `remark`, `begin_time`, `expire_time`, `create_time`, `update_time`) VALUES (NULL, '0', '$User_mac_id', NULL, '$User_mac_id', NULL, NULL, NULL, NULL, '10', NULL, NULL, NULL, NULL, NULL, NULL, '9999', '9999', '9999', NULL, NULL, NULL, 'enabled', NULL, NOW(), NOW() + interval 2 year , now(), now());";
         $ret_radius = mysqli_query($conn_radius, $mysql);
         if (!$ret_radius) {
-            error_web("添加radius数据库tr_subscribe表mac账户错误","哎呀出错啦！",mysqli_error($conn_portal));
+            error_web("添加radius数据库tr_subscribe表mac账户错误", "哎呀出错啦！", mysqli_error($conn_portal));
             exit();
 
         }
@@ -152,6 +152,6 @@ if (isset($_SESSION['Wg_sn']) and isset($_SESSION['User_mac']) and isset($_SESSI
         exit;
     }
 } else {
-    error_web("无法获取传递参数","无法获取传递参数");
+    error_web("无法获取传递参数", "无法获取传递参数");
     exit;
 }

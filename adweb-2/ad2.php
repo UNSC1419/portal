@@ -550,8 +550,8 @@ $sn_ad_href = $SubmitUrl_Split[0] . "&" . $SubmitUrl_Split[1] . "&" . $SubmitUrl
                                                                 <div class="elementor-widget-container">
                                                                     <div class="elementor-image">
                                                                         <a <?php
-                                                                           echo 'href="'.$sn_ad_href.'"';
-                                                                           ?>>
+                                                                        echo 'href="' . $sn_ad_href . '"';
+                                                                        ?>>
 
                                                                             <img alt=""
                                                                                  class="attachment-full size-full"
@@ -559,7 +559,7 @@ $sn_ad_href = $SubmitUrl_Split[0] . "&" . $SubmitUrl_Split[1] . "&" . $SubmitUrl
                                                                                  loading="lazy"
                                                                                  sizes="(max-width: 1924px) 100vw, 1924px"
                                                                                 <?php
-                                                                                echo 'src="'.$sn_ad_imgurl.'"';
+                                                                                echo 'src="' . $sn_ad_imgurl . '"';
                                                                                 ?>
                                                                                  width="1924"/>
                                                                         </a>
@@ -581,7 +581,7 @@ $sn_ad_href = $SubmitUrl_Split[0] . "&" . $SubmitUrl_Split[1] . "&" . $SubmitUrl
                                             <div class="elementor-button-wrapper">
                                                 <a class="elementor-button-link elementor-button elementor-size-md"
                                                     <?php
-                                                    echo 'href="'.$SubmitUrl.'"'
+                                                    echo 'href="' . $SubmitUrl . '"'
                                                     ?>
                                                    role="button">
 						<span class="elementor-button-content-wrapper">
@@ -611,7 +611,7 @@ $sn_ad_href = $SubmitUrl_Split[0] . "&" . $SubmitUrl_Split[1] . "&" . $SubmitUrl
                                                                 <div class="elementor-widget-container">
                                                                     <div class="elementor-image">
                                                                         <a <?php
-                                                                        echo 'href="'.$SubmitUrl.'"'
+                                                                        echo 'href="' . $SubmitUrl . '"'
                                                                         ?>>
                                                                             <img alt=""
                                                                                  class="attachment-full size-full"
