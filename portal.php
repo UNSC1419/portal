@@ -132,7 +132,6 @@ if (isset($_SESSION['Wg_sn']) and isset($_SESSION['User_mac']) and isset($_SESSI
 
     } else {
 
-
         //账号不存在向radius中添加用户
         //定义Mysql语句 添加用户mac账户
         $mysql = "INSERT INTO `tr_subscribe` (`id`, `node_id`, `subscriber`, `realname`, `password`, `domain`, `addr_pool`, `policy`, `is_online`, `active_num`, `bind_mac`, `bind_vlan`, `ip_addr`, `mac_addr`, `in_vlan`, `out_vlan`, `up_rate`, `down_rate`, `up_peak_rate`, `down_peak_rate`, `up_rate_code`, `down_rate_code`, `status`, `remark`, `begin_time`, `expire_time`, `create_time`, `update_time`) VALUES (NULL, '0', '$User_mac_id', NULL, '$User_mac_id', NULL, NULL, NULL, NULL, '10', NULL, NULL, NULL, NULL, NULL, NULL, '9999', '9999', '9999', NULL, NULL, NULL, 'enabled', NULL, NOW(), NOW() + interval 2 year , now(), now());";

@@ -12,9 +12,9 @@ $SubmitUrl_Split[4] = "success=" . $sn_ad_url;
 $sn_ad_href = $SubmitUrl_Split[0] . "&" . $SubmitUrl_Split[1] . "&" . $SubmitUrl_Split[2] . "&" . $SubmitUrl_Split[3] . "&" . $SubmitUrl_Split[4];
 
 //1、2广告位链接及图片参数
-$ad_1_url = "https://www.bilibili.com/";
-$ad_1_imgurl = "./static/picture/1.png";
-$ad_2_url = "https://cn.pornhub.com/";
+$ad_1_url = "http://portal.cynoscloud.com/aham/index.html";
+$ad_1_imgurl = "./static/picture/39.jpg";
+$ad_2_url = "https://baidu.com/";
 $ad_2_imgurl = "./static/picture/2.jpg";
 //1、2广告位url处理流成
 $SubmitUrl_Split[4] = "success=" . $ad_1_url;

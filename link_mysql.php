@@ -6,9 +6,9 @@ $servername_portal = "192.168.3.249";
 $username_portal = "portal-test";
 $password_portal = "SSZkY8FLwM6As5ZT";
 //radius数据库参数
-$servername_radius = "192.168.3.249";
-$username_radius = "toughradius-test";
-$password_radius = "DzL4fkAwdpchhH87";
+$servername_radius = "192.168.3.246";
+$username_radius = "root";
+$password_radius = "myroot";
 
 // 创建连接portal数据库
 $conn_portal = new mysqli($servername_portal, $username_portal, $password_portal);
@@ -25,6 +25,6 @@ if ($conn_radius->connect_error) {
     die("连接radius失败: " . $conn_radius->connect_error);
 }
 //未声明情况下$conn_radius所有操作均为toughradius数据
-mysqli_select_db($conn_radius, "toughradius-test");
+mysqli_select_db($conn_radius, "toughradius");
 
 ?>
