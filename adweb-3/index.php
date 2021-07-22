@@ -169,7 +169,7 @@ if (count($SubmitUrl_Split) !== 5) {
                                                 <a <?php
                                                 echo 'href="' . $ad_1_href_url . '"'
                                                 ?>>
-                                                    <img width="590" height="400" src="static/picture/qr1.jpg"
+                                                    <img width="370px" height="245px" src="static/picture/qr1.jpg"
                                                         <?php
                                                         echo 'src="' . $ad_1_imgurl . '" class="attachment-large size-large" alt="" loading="lazy" srcset="' . $ad_1_imgurl . ' 590w, ' . $ad_1_imgurl . ' 300w" sizes="(max-width: 590px) 100vw, 590px" ';
                                                         ?>>
@@ -187,10 +187,8 @@ if (count($SubmitUrl_Split) !== 5) {
                                                 <a <?php
                                                 echo 'href="' . $ad_2_href_url . '"'
                                                 ?>>
-                                                    <img width="640" height="514"
-                                                        <?php
-                                                        echo 'src="' . $ad_2_imgurl . '" class="attachment-large size-large" alt="" loading="lazy" srcset="' . $ad_2_imgurl . ' 590w, ' . $ad_2_imgurl . ' 300w" sizes="(max-width: 590px) 100vw, 590px" ';
-                                                        ?>> </a>
+                                                    <video controls muted="true" autoplay="true" src="static/picture/demo.mp4" x-webkit-airplay="allow" preload="meta" webkit-playsinline="true" x5-video-player-type="h5-page" x5-video-player-fullscreen="true" playsinline="true" poster="static/picture/3.jpg"></video>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
